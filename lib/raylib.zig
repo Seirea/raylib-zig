@@ -3513,8 +3513,52 @@ pub fn updateCameraPro(camera: *Camera, movement: Vector3, rotation: Vector3, zo
     cdef.UpdateCameraPro(@as([*c]Camera, @ptrCast(camera)), movement, rotation, zoom);
 }
 
+pub fn getCameraForward(camera: [*c]rl.Camera) rl.Vector3 {
+    return cdef.GetCameraForward(@as([*c]Camera, @ptrCast(camera)));
+}
+
+pub fn getCameraUp(camera: [*c]rl.Camera) rl.Vector3 {
+    return cdef.GetCameraUp(@as([*c]Camera, @ptrCast(camera)));
+}
+
+pub fn getCameraRight(camera: [*c]rl.Camera) rl.Vector3 {
+    return cdef.GetCameraRight(@as([*c]Camera, @ptrCast(camera)));
+}
+
+// Camera movement
+pub fn cameraMoveForward(camera: [*c]rl.Camera, distance: f32, moveInWorldPlane: bool) void {
+    cdef.CameraMoveForward(@as([*c]Camera, @ptrCast(camera)), distance, moveInWorldPlane);
+}
+
+pub fn cameraMoveUp(camera: [*c]rl.Camera, distance: f32) void {
+    cdef.CameraMoveUp(@as([*c]Camera, @ptrCast(camera)), distance);
+}
+pub fn cameraMoveRight(camera: [*c]rl.Camera, distance: f32, moveInWorldPlane: bool) void {
+    cdef.CameraMoveRight(@as([*c]Camera, @ptrCast(camera)), distance, moveInWorldPlane);
+}
+
+pub fn cameraMoveToTarget(camera: [*c]rl.Camera, delta: f32) void {
+    cdef.CameraMoveToTarget(@as([*c]Camera, @ptrCast(camera)), delta);
+}
+
+// Camera rotation
 pub fn cameraYaw(camera: *Camera, angle: f32, rotateAroundTarget: bool) void {
     cdef.CameraYaw(@as([*c]Camera, @ptrCast(camera)), angle, rotateAroundTarget);
+}
+
+pub fn cameraPitch(camera: [*c]rl.Camera, angle: f32, lockView: bool, rotateAroundTarget: bool, rotateUp: bool) void {
+    cdef.CameraPitch(@as([*c]Camera, @ptrCast(camera)), angle, lockView,rotateAroundTarget,rotateUp);
+}
+
+pub fn cameraRoll(camera: [*c]rl.Camera, angle: f32) {
+    cdef.CameraRoll(@as([*c]Camera, @ptrCast(camera)), angle);
+}
+
+pub fn getCameraViewMatrix(Ccamera: [*c]rl.Camera) rl.Matrix {
+    return cdef.GetCameraViewMatrix(@as([*c]Camera, @ptrCast(camera)));
+}
+pub fn getCameraProjectionMatrix(camera: [*c]rl.Camera, aspect: f32) rl.Matrix {
+    return cdef.GetCameraProjectionMatrix(@as([*c]Camera, @ptrCast(camera)), aspect);
 }
 
 /// Set texture and rectangle to be used on shapes drawing
