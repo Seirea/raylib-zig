@@ -3547,14 +3547,14 @@ pub fn cameraYaw(camera: *Camera, angle: f32, rotateAroundTarget: bool) void {
 }
 
 pub fn cameraPitch(camera: [*c]rl.Camera, angle: f32, lockView: bool, rotateAroundTarget: bool, rotateUp: bool) void {
-    cdef.CameraPitch(@as([*c]Camera, @ptrCast(camera)), angle, lockView,rotateAroundTarget,rotateUp);
+    cdef.CameraPitch(@as([*c]Camera, @ptrCast(camera)), angle, lockView, rotateAroundTarget, rotateUp);
 }
 
-pub fn cameraRoll(camera: [*c]rl.Camera, angle: f32) {
+pub fn cameraRoll(camera: [*c]rl.Camera, angle: f32) void {
     cdef.CameraRoll(@as([*c]Camera, @ptrCast(camera)), angle);
 }
 
-pub fn getCameraViewMatrix(Ccamera: [*c]rl.Camera) rl.Matrix {
+pub fn getCameraViewMatrix(camera: [*c]rl.Camera) rl.Matrix {
     return cdef.GetCameraViewMatrix(@as([*c]Camera, @ptrCast(camera)));
 }
 pub fn getCameraProjectionMatrix(camera: [*c]rl.Camera, aspect: f32) rl.Matrix {
