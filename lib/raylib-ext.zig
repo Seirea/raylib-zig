@@ -209,6 +209,25 @@ pub extern "c" fn GetGesturePinchVector() rl.Vector2;
 pub extern "c" fn GetGesturePinchAngle() f32;
 pub extern "c" fn UpdateCamera(camera: [*c]rl.Camera, mode: rl.CameraMode) void;
 pub extern "c" fn UpdateCameraPro(camera: [*c]rl.Camera, movement: rl.Vector3, rotation: rl.Vector3, zoom: f32) void;
+
+pub extern "c" fn GetCameraForward(camera: [*c]rl.Camera) rl.Vector3;
+pub extern "c" fn GetCameraUp(camera: [*c]rl.Camera) rl.Vector3;
+pub extern "c" fn GetCameraRight(camera: [*c]rl.Camera) rl.Vector3;
+
+// Camera movement
+pub extern "c" fn CameraMoveForward(camera: [*c]rl.Camera, distance: f32, moveInWorldPlane: bool) void;
+pub extern "c" fn CameraMoveUp(camera: [*c]rl.Camera, distance: f32) void;
+pub extern "c" fn CameraMoveRight(camera: [*c]rl.Camera, distance: f32, moveInWorldPlane: bool) void;
+pub extern "c" fn CameraMoveToTarget(camera: [*c]rl.Camera, delta: f32) void;
+
+// Camera rotation
+pub extern "c" fn CameraYaw(camera: [*c]rl.Camera, angle: f32, rotateAroundTarget: bool) void;
+pub extern "c" fn CameraPitch(camera: [*c]rl.Camera, angle: f32, lockView: bool, rotateAroundTarget: bool, rotateUp: bool) void;
+pub extern "c" fn CameraRoll(camera: [*c]rl.Camera, angle: f32) void;
+
+pub extern "c" fn GetCameraViewMatrix(Ccamera: [*c]rl.Camera) rl.Matrix;
+pub extern "c" fn GetCameraProjectionMatrix(camera: [*c]rl.Camera, aspect: f32) rl.Matrix;
+
 pub extern "c" fn SetShapesTexture(texture: rl.Texture2D, source: rl.Rectangle) void;
 pub extern "c" fn GetShapesTexture() rl.Texture2D;
 pub extern "c" fn GetShapesTextureRectangle() rl.Rectangle;

@@ -3513,6 +3513,10 @@ pub fn updateCameraPro(camera: *Camera, movement: Vector3, rotation: Vector3, zo
     cdef.UpdateCameraPro(@as([*c]Camera, @ptrCast(camera)), movement, rotation, zoom);
 }
 
+pub fn cameraYaw(camera: *Camera, angle: f32, rotateAroundTarget: bool) void {
+    cdef.CameraYaw(@as([*c]Camera, @ptrCast(camera)), angle, rotateAroundTarget);
+}
+
 /// Set texture and rectangle to be used on shapes drawing
 pub fn setShapesTexture(texture: Texture2D, source: Rectangle) void {
     cdef.SetShapesTexture(texture, source);
