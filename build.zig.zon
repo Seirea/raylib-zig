@@ -1,7 +1,7 @@
 .{
     .name = .raylib_zig,
     .version = "5.6.0-dev",
-    .fingerprint = 0xc4cfa8c610114f28,
+    .fingerprint = 0xc4cfa8c609dfba5f,
     .dependencies = .{
         .raylib = .{
             .url = "git+https://github.com/raysan5/raylib?ref=master#61a026f7ef54f17428ee6fdf079b0d2e7bdbca73",
